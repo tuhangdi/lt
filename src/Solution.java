@@ -30,7 +30,6 @@ public class Solution {
                     result[0] = Math.min(i,j);
                     result[1] = Math.max(i,j);
                 }
-                break;
             }
         }
         return result;
