@@ -20,8 +20,25 @@ package ltcode;
 public class ZigzagConversion6 {
     public static String convert(String s, int numRows) {
         String[] everys = s.split("");
-        return everys[0];
+        int i,j;
+        StringBuffer result = new StringBuffer();
+        for(i=0;i<numRows;i++){
+            for(j=i;j<everys.length;){
+                if(i==0 || i==(numRows-1)){  //第一行与最后一行不需要加中间值
+                    result.append(everys[j]);
+                    j += (numRows-1)*2;
+                }
+                else{
+                    if(j>numRows){             //中间值
+                        result.append(everys[j-2*i]);
+                    }
+                    result.append(everys[j]);
+                    j += (numRows-1)*2;
+                }
+            }
 
+        }
+        return result.toString();
     }
     public static void  main(String[] args){
         System.out.println(convert("PAYPALISHIRING",3));
